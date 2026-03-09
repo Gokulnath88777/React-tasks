@@ -3,7 +3,7 @@ import { nameCheckFunc, passCheckFunc, emailCheckFunc } from "./Regex"
 import LoginForm from "./LoginForm"
 
 function Register() {
-   let regRef = useRef()
+    let regRef = useRef()
     let [isRegister, setRegister] = useState(true)
     let [nameValid, setnameValid] = useState(true)
     let [emailValid, setemailValid] = useState(true)
@@ -49,30 +49,34 @@ function Register() {
 
 
     }
-    
+
     return (
         <>
             {
                 isRegister &&
-                <form ref={regRef} className="card">
-                    <label >User Name</label>
-                    <input type="text" />
+                <div>
+                    
+                    <form ref={regRef} className="card">
+                        <h3>Register Form</h3>
+                        <label >User Name</label>
+                        <input type="text" />
+                        {
+                            !nameValid && <p>{errortext}</p>
+                        }
+                        <br />
+                        <label >Email</label>
+                        <input type="email" />
+                        {!emailValid && <p>{errortext}</p>}
+                        <br />
+                        <label >Password</label>
+                        <input type="password" />
+                        {<p >{passValid}</p>}
+                        <button type="submit" onClick={submitFunc}>submit</button>
+                    </form>
+                </div>
 
-                    {
-                        !nameValid && <p>{errortext}</p>
-                    }
-                    <br />
-                    <label >Email</label>
-                    <input type="email" />
-                    {!emailValid && <p>{errortext}</p>}
-                    <br />
-                    <label >Password</label>
-                    <input type="password" />
-                    {<p >{passValid}</p>}
-                    <button type="submit" onClick={submitFunc}>submit</button>
-                </form>
             }
-            {!isRegister && <LoginForm/>}
+            {!isRegister && <LoginForm />}
         </>
 
     )

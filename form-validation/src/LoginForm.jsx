@@ -14,7 +14,7 @@ function LoginForm() {
 
         let isEmail = emailCheckFunc(logRef.current[0].value)
         setemailValid(isEmail)
-        if (isEmail && logRef.current[1]!='') {
+        if (isEmail && logRef.current[1] != '') {
             console.log("emailChecked")
             let users = JSON.parse(sessionStorage.getItem("users")) || []
 
@@ -28,8 +28,8 @@ function LoginForm() {
             }
             else {
                 alert("You dont have account")
-               
-               setTimeout(()=>setLogin(false),1000) 
+
+                setTimeout(() => setLogin(false), 1000)
             }
         }
         else {
@@ -42,8 +42,10 @@ function LoginForm() {
             {
 
                 isLogin &&
-                <form ref={logRef} className="card">
 
+
+                <form ref={logRef} className="card">
+                    <h3>Login Form</h3>
                     <label >Email</label>
                     <input type="email" />
                     {!isemailValid && <p>Invalid Input</p>}
@@ -55,6 +57,9 @@ function LoginForm() {
                     <br />
                     <span>Don't have an Account <button onClick={registerPage}>Register</button></span>
                 </form>
+
+
+
             }
             {
                 !isLogin && <Form />

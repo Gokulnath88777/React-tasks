@@ -5,6 +5,10 @@
   gap: 10px;
 
 }
+h3
+{
+  text-align: center;
+}
 img
 {
   aspect-ratio: 16/9;
