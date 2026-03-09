@@ -46,7 +46,7 @@ function LoginForm() {
 
                     <label >Email</label>
                     <input type="email" />
-                    {!isemailValid && <p>Invalid Feild is Empty</p>}
+                    {!isemailValid && <p>Invalid Input</p>}
                     <br />
                     <label >Password</label>
                     <input type="password" autoComplete="off" required />
