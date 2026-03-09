@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import Form from "./Register";
-import { emailCheckFunc } from "./Regex"
+import { emailCheckFunc, loginPass } from "./Regex"
 function LoginForm() {
     let logRef = useRef()
     let [isLogin, setLogin] = useState(true)
     let [isemailValid, setemailValid] = useState(true)
+    let [isPassValid, setPassValid] = useState(true)
 
     function registerPage() {
         setLogin(false)
@@ -13,8 +14,10 @@ function LoginForm() {
         e.preventDefault()
 
         let isEmail = emailCheckFunc(logRef.current[0].value)
+        let isPassword = loginPass(logRef.current[1].value)
         setemailValid(isEmail)
-        if (isEmail && logRef.current[1] != '') {
+        setPassValid(isPassword)
+        if (isEmail && isPassword) {
             console.log("emailChecked")
             let users = JSON.parse(sessionStorage.getItem("users")) || []
 
@@ -31,9 +34,6 @@ function LoginForm() {
 
                 setTimeout(() => setLogin(false), 1000)
             }
-        }
-        else {
-
         }
 
     }
@@ -52,6 +52,7 @@ function LoginForm() {
                     <br />
                     <label >Password</label>
                     <input type="password" autoComplete="off" required />
+                    {!isPassValid && <p>Invalid Input</p>}
                     <br />
                     <button type="submit" onClick={loginFunc}>Submit</button>
                     <br />
