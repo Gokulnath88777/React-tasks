@@ -9,8 +9,8 @@ function MainLayout() {
     <nav className='header'>
         <Header/>
         <div>
-          <Link to={"/all"}>All</Link>
-          <Link to={"/title"}>Title</Link>
+          <Link to={"/all"}>All Content</Link>
+          <Link to={"/title"}>Titles</Link>
           <Link to={"/posts"}>Posts</Link> 
         </div>       
       <ThemeChange />

@@ -2,7 +2,7 @@
 function Header() {
   return (
     <div>
-        <h3>Logo</h3>
+        <h3>Post Viewer</h3>
     </div>
   )
 }
