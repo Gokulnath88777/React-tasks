@@ -1,0 +1,188 @@
+{
+  "categories": [
+    {
+      "name": "PROGRAMMING",
+      "courses": [
+        {
+          "id": 1,
+          "title": "Java Programming",
+          "instructor": "John Doe",
+          "duration": "10 hours",
+          "level": "Beginner",
+          "description": "Learn Java from basics to OOP concepts.",
+          "syllabus": ["Variables", "Loops", "OOP", "Collections"]
+        },
+        {
+          "id": 2,
+          "title": "Python Programming",
+          "instructor": "Jane Smith",
+          "duration": "8 hours",
+          "level": "Beginner",
+          "description": "Complete Python fundamentals.",
+          "syllabus": ["Basics", "Functions", "Modules", "File Handling"]
+        }
+      ]
+    },
+    {
+      "name": "WEB DEVELOPMENT",
+      "courses": [
+        {
+          "id": 3,
+          "title": "HTML & CSS",
+          "instructor": "Alice Johnson",
+          "duration": "6 hours",
+          "level": "Beginner",
+          "description": "Learn structure and styling of web pages.",
+          "syllabus": ["HTML Basics", "CSS Selectors", "Flexbox", "Grid"]
+        },
+        {
+          "id": 4,
+          "title": "JavaScript & DOM",
+          "instructor": "Bob Martin",
+          "duration": "8 hours",
+          "level": "Intermediate",
+          "description": "Learn JS and DOM manipulation.",
+          "syllabus": ["Variables", "Functions", "DOM", "Events"]
+        }
+      ]
+    },
+    {
+      "name": "DEVOPS",
+      "courses": [
+        {
+          "id": 5,
+          "title": "Docker & Containers",
+          "instructor": "Charlie Brown",
+          "duration": "5 hours",
+          "level": "Intermediate",
+          "description": "Learn containerization with Docker.",
+          "syllabus": ["Docker Basics", "Images", "Containers", "Volumes"]
+        },
+        {
+          "id": 6,
+          "title": "CI/CD Pipelines",
+          "instructor": "Diana Prince",
+          "duration": "6 hours",
+          "level": "Advanced",
+          "description": "Automate deployment using CI/CD.",
+          "syllabus": ["Jenkins", "GitHub Actions", "Deployment"]
+        }
+      ]
+    },
+    {
+      "name": "APP DEVELOPMENT",
+      "courses": [
+        {
+          "id": 7,
+          "title": "Android Development",
+          "instructor": "Ethan Hunt",
+          "duration": "10 hours",
+          "level": "Beginner",
+          "description": "Build Android apps using Java/Kotlin.",
+          "syllabus": ["UI Design", "Activities", "Intents", "API Calls"]
+        },
+        {
+          "id": 8,
+          "title": "Flutter Development",
+          "instructor": "Sophia Lee",
+          "duration": "8 hours",
+          "level": "Intermediate",
+          "description": "Cross-platform apps using Flutter.",
+          "syllabus": ["Dart", "Widgets", "Navigation", "State Management"]
+        }
+      ]
+    },
+    {
+      "name": "DESIGNING",
+      "courses": [
+        {
+          "id": 9,
+          "title": "UI/UX Design",
+          "instructor": "Michael Scott",
+          "duration": "5 hours",
+          "level": "Beginner",
+          "description": "Learn UI/UX fundamentals.",
+          "syllabus": ["Wireframing", "Prototyping", "User Research"]
+        },
+        {
+          "id": 10,
+          "title": "Figma Design",
+          "instructor": "Pam Beesly",
+          "duration": "4 hours",
+          "level": "Beginner",
+          "description": "Design interfaces using Figma.",
+          "syllabus": ["Layouts", "Components", "Design Systems"]
+        }
+      ]
+    },
+    {
+      "name": "TESTING",
+      "courses": [
+        {
+          "id": 11,
+          "title": "Manual Testing",
+          "instructor": "Jim Halpert",
+          "duration": "6 hours",
+          "level": "Beginner",
+          "description": "Learn software testing basics.",
+          "syllabus": ["Test Cases", "Bug Reporting", "SDLC"]
+        },
+        {
+          "id": 12,
+          "title": "Automation Testing",
+          "instructor": "Dwight Schrute",
+          "duration": "7 hours",
+          "level": "Intermediate",
+          "description": "Automation using Selenium.",
+          "syllabus": ["Selenium", "Test Scripts", "Frameworks"]
+        }
+      ]
+    },
+    {
+      "name": "AI DS",
+      "courses": [
+        {
+          "id": 13,
+          "title": "Machine Learning",
+          "instructor": "Andrew Ng",
+          "duration": "12 hours",
+          "level": "Intermediate",
+          "description": "Learn ML algorithms and models.",
+          "syllabus": ["Regression", "Classification", "Clustering"]
+        },
+        {
+          "id": 14,
+          "title": "Data Science",
+          "instructor": "Kaggle Expert",
+          "duration": "10 hours",
+          "level": "Intermediate",
+          "description": "Data analysis and visualization.",
+          "syllabus": ["Pandas", "NumPy", "Visualization"]
+        }
+      ]
+    },
+    {
+      "name": "OTHERS",
+      "courses": [
+        {
+          "id": 15,
+          "title": "Git & GitHub",
+          "instructor": "Linus Torvalds",
+          "duration": "3 hours",
+          "level": "Beginner",
+          "description": "Version control basics.",
+          "syllabus": ["Git Commands", "Branches", "Merging"]
+        },
+        {
+          "id": 16,
+          "title": "Soft Skills",
+          "instructor": "Tony Robbins",
+          "duration": "4 hours",
+          "level": "Beginner",
+          "description": "Improve communication skills.",
+          "syllabus": ["Communication", "Teamwork", "Leadership"]
+        }
+      ]
+    }
+  ]
+}
