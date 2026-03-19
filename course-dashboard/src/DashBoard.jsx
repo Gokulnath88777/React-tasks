@@ -24,10 +24,10 @@ function DashBoard() {
             </Link>
 
             <Link
-              to="/dashboard/enrolled"
+              to="/dashboard/saved"
               className="hover:text-primary transition"
             >
-              Enrolled
+              Saved
             </Link>
 
             <Link

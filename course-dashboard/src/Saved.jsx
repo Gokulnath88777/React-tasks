@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { enrolledContext } from './EnrolledProvider'
+import { savedContext } from './SavedProvider'
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -10,10 +10,13 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { useNavigate } from 'react-router-dom'
+import { purchaseContext } from './PurchaseProvider'
 
-function Enrolled() {
+function Saved() {
   let navigate = useNavigate()
-  let { enrolled,handleRemove } = useContext(enrolledContext)
+  
+  let { saved, handleRemove } = useContext(savedContext)
+  let {purchased,handlePurchased}=useContext(purchaseContext)
 
   function handleClick() {
     navigate(-1)
@@ -21,19 +24,19 @@ function Enrolled() {
 
   return (
     <div className="p-4">
-      
+
       <Button variant="ghost" onClick={handleClick} className="mb-4">
         ⬅️ Back
       </Button>
 
       {
-        enrolled? (
+        saved ? (
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {enrolled.map((course, index) => (
-              
+            {saved.map((course, index) => (
+
               <Card key={index} className="rounded-2xl shadow-sm hover:shadow-md transition">
-                
+
                 <CardHeader>
                   <CardTitle>{course.title}</CardTitle>
                   <CardDescription>
@@ -53,9 +56,11 @@ function Enrolled() {
                   </p>
                 </CardContent>
 
-                <CardFooter className="flex justify-between">
-                  <Button>Enrolled</Button>
-                  <Button onClick={()=>handleRemove(course)}>Remove Enroll</Button>
+                <CardFooter className="flex">
+                  <Button>saved</Button>
+                  <Button onClick={() => handlePurchased(course)} disabled={purchased && purchased.find(purchase => purchase.title == course.title)} >
+                    {purchased && purchased.find(purchase => purchase.title == course.title) ? "Purchased" : "Purchase"}</Button>
+                  <Button onClick={() => handleRemove(course)}>Remove</Button>
                 </CardFooter>
 
               </Card>
@@ -64,11 +69,11 @@ function Enrolled() {
 
         ) : (
 
-       
-            <h1 className="text-2xl font-semibold text-muted-foreground">
-              No enrolled courses
-            </h1>
-     
+
+          <h1 className="text-2xl font-semibold text-muted-foreground">
+            No saved courses
+          </h1>
+
         )
       }
 
@@ -76,4 +81,4 @@ function Enrolled() {
   )
 }
 
-export default Enrolled
+export default Saved

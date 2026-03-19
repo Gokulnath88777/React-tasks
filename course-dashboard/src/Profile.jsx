@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from './AuthProvider'
-import { enrolledContext } from './EnrolledProvider'
+import { savedContext } from './SavedProvider'
 import { Avatar } from './components/ui/avatar'
 import { Badge } from './components/ui/badge'
 import { AvatarFallback } from './components/ui/avatar'
@@ -13,8 +13,9 @@ import {
 } from "@/components/ui/card"
 import { purchaseContext } from './PurchaseProvider'
 function Profile() {
-    let {loginDetails,logoutFunc}=useContext(AuthContext)
-  let { enrolled } = useContext(enrolledContext)
+    let {logoutFunc}=useContext(AuthContext)
+  let { saved } = useContext(savedContext)
+  let{loginDetails}=useContext(AuthContext)
   let {purchased}=useContext(purchaseContext)
   return (
    <div className=" bg-muted/40 min-h-screen space-y-6">
@@ -42,8 +43,8 @@ function Profile() {
 
         <Card className="rounded-2xl shadow-sm">
           <CardContent className="p-6">
-            <p className="text-sm text-muted-foreground">Enrolled</p>
-            <h3 className="text-3xl font-bold">{enrolled ? enrolled.length : 0 }</h3>
+            <p className="text-sm text-muted-foreground">Saved</p>
+            <h3 className="text-3xl font-bold">{saved ? saved.length : 0 }</h3>
           </CardContent>
         </Card>
         <Card className="rounded-2xl shadow-sm">

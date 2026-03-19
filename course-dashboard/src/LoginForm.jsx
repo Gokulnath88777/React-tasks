@@ -17,7 +17,7 @@ import { toast } from "react-toastify"
 import { AuthContext } from "./AuthProvider"
 
 function LoginForm() {
-  let { login, LoginFunc } = useContext(AuthContext)
+  let {  LoginFunc } = useContext(AuthContext)
   let userName = useRef()
   let navigate = useNavigate()
   function handleClick() {

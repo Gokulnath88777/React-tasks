@@ -4,20 +4,20 @@ import Router from './Router'
 import AuthProvider from './AuthProvider'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import EnrolledProvider from './EnrolledProvider';
+import SavedProvider from './SavedProvider'
 import PurchaseProvider from './PurchaseProvider';
 
 function App() {
 
   return (
     <BrowserRouter>
-      <EnrolledProvider>
+      <SavedProvider>
         <PurchaseProvider>
           <AuthProvider>
             <Router></Router>
           </AuthProvider>
         </PurchaseProvider>
-      </EnrolledProvider>
+      </SavedProvider>
       <ToastContainer
         theme="dark"
         autoClose={2000}

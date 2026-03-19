@@ -1,26 +1,29 @@
 import React, {  createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { enrolledContext } from './EnrolledProvider';
+import { savedContext } from './SavedProvider';
 import { purchaseContext } from './PurchaseProvider';
 
 export const AuthContext=createContext()
 function AuthProvider({children}) {
-    let [loginDetails,setLoginDetails]=useState()
-    let [login,setLogin]=useState(false)
-    let {setEnrolled}=useContext(enrolledContext)
+    let [loginDetails,setLoginDetails]=useState(()=>
+    {const data = localStorage.getItem("loginName");
+      return data ? data.replace(/"/g, "") : "";
+    })
+    let {setSaved}=useContext(savedContext)
     let{setPurchase}=useContext(purchaseContext)
     console.log(children);
     let navigate=useNavigate(     )
     function LoginFunc(userName)
     {
+       
+       localStorage.setItem("loginName",JSON.stringify(userName))
        setLoginDetails(userName)
-       setLogin(true)
-       setLogin(true)
     }
     function logoutFunc()
     {
-      console.log("Logut");
-      setEnrolled(null);
+      localStorage.removeItem("loginName")
+      setLoginDetails("");
+      setSaved(null);
       setPurchase(null);
       navigate("/")
     }

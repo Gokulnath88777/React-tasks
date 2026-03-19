@@ -9,14 +9,14 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { enrolledContext } from './EnrolledProvider'
+import { savedContext } from './SavedProvider'
 import { Button } from './components/ui/button'
 import { useNavigate } from 'react-router-dom'
 import PurchaseProvider, { purchaseContext } from './PurchaseProvider'
 function Courses() {
     let [allcourse, setAll] = useState([])
     let [course, setCourse] = useState([])
-    let { enrolled, enrollFunc, handleEnrolled } = useContext(enrolledContext)
+    let { saved, enrollFunc, handleSaved } = useContext(savedContext)
     let { purchased, handlePurchased } = useContext(purchaseContext)
     let courseNavigate = useNavigate()
     useEffect(() => {
@@ -82,10 +82,12 @@ function Courses() {
                                 <CardContent>
                                     <p>{course.description}</p></CardContent>
                                 <CardFooter className="flex flex-row">
-                                    <Button onClick={() => handleEnrolled(course)} disabled={enrolled && enrolled.find(enrollCourse => enrollCourse.title === course.title)}
-                                    >
-                                        {enrolled && enrolled.find(enrollCourse => enrollCourse.title == course.title) ? "Enrolled" : "Enroll"}
-                                    </Button>
+                                  { 
+                                    !(saved||[]).some(saveCourse => saveCourse.title === course.title)? 
+                                  <Button onClick={() => handleSaved(course)}>
+                                    Save
+                                    </Button>:""
+                                  }
                                     <Button onClick={() => handlePurchased(course)} disabled={purchased && purchased.find(purchase => purchase.title == course.title) } >
                                         {purchased && purchased.find(purchase => purchase.title == course.title) ? "Purchased" : "Purchase"}</Button>
                                     <Button onClick={() => handleView(course.id)}>

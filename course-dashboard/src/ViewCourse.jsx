@@ -8,12 +8,12 @@ import {
     CardDescription,
 } from "@/components/ui/card"
 import { useContext, useEffect, useState } from "react"
-import { enrolledContext } from "./EnrolledProvider"
+import { savedContext } from "./SavedProvider"
 import { useNavigate, useParams } from "react-router-dom"
 import { purchaseContext } from "./PurchaseProvider"
 
 function ViewCourse() {
-    let { enrolled, handleEnrolled } = useContext(enrolledContext)
+    let { saved, handleSaved } = useContext(savedContext)
     let { id } = useParams()
     let [view, setView] = useState(null)
     let { purchased, handlePurchased } = useContext(purchaseContext)
@@ -41,10 +41,9 @@ function ViewCourse() {
     }
     return (
         <div className="max-w-4xl mx-auto p-6 space-y-6">
-
-            <Button variant="ghost" onClick={handleClick} className="mb-4">
+        <Button variant="ghost" onClick={handleClick} className="mb-4">
                 ⬅️ Back
-            </Button>
+              </Button>
             {
                 view ? <Card className="rounded-2xl shadow-md">
 
@@ -54,10 +53,12 @@ function ViewCourse() {
                                 {view.title}
                             </CardTitle>
                             <Badge variant="secondary">{view.level}</Badge>
-                            <Button size="lg" onClick={() => handleEnrolled(view)} disabled={enrolled && enrolled.find(enrollCourse => enrollCourse.title === view.title)}>
-                                {enrolled && enrolled.find(enrollCourse => enrollCourse.title == view.title) ? "Enrolled" : "Enroll Now"}
-
-                            </Button>
+                            {
+                                !(saved || []).some(saveCourse => saveCourse.title === view.title) ?
+                                    <Button onClick={() => handleSaved(view)}>
+                                        Save
+                                    </Button> : ""
+                            }
                             <Button size="lg" onClick={() => handlePurchased(view)} disabled={purchased && purchased.find(purchase => purchase.title == view.title)}>{purchased && purchased.find(purchase => purchase.title == view.title) ? "Purchased" : "Purchase"}</Button>
                         </div>
 
